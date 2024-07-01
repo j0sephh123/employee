@@ -1,3 +1,5 @@
-test("sample test", () => {
-  expect(true).toBe(true);
+import { sayHello } from '.';
+
+test('sample test', () => {
+  expect(sayHello()).toBe("Hello, world!");
 });
