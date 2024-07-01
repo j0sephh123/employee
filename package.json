@@ -8,7 +8,8 @@
     "start": "node dist/index.js",
     "dev": "nodemon",
     "test": "jest",
-    "run-once": "ts-node src/index.ts"
+    "run-once": "ts-node src/index.ts",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -16,10 +17,23 @@
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.9",
+    "husky": "^9.0.11",
     "jest": "^29.7.0",
+    "lint-staged": "^15.2.7",
     "nodemon": "^3.1.4",
     "ts-jest": "^29.1.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "npm run test:coverage",
+      "git add"
+    ]
   }
 }
