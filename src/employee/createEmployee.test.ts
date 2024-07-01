@@ -1,4 +1,4 @@
-import { errorMessages } from "./constants";
+import { errorMessages } from "../constants";
 import createEmployee from "./createEmployee";
 
 describe("createEmployee", () => {

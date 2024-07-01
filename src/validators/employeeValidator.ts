@@ -1,5 +1,5 @@
-import { error } from "console";
 import { errorMessages } from "../constants";
+
 
 const employeeValidator = {
 	firstName(firstNameArg: string) {
