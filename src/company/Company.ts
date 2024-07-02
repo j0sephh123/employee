@@ -37,6 +37,15 @@ export default class Company {
 		return this.employees;
 	}
 
+	public removeEmployee(employee: Employee) {
+		const employeesBefore = this._employees.length;
+		this._employees = this._employees.filter(e => e.name !== employee.name);
+
+		if (employeesBefore === this._employees.length) {
+			throw new Error(errorMessages['company.employee.doesNotExist']);
+		}
+	}
+
 	get employees() {
 		return this._employees;
 	}

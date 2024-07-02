@@ -34,4 +34,20 @@ describe('Company', () => {
 			);
 		});
 	});
+	describe('removeEmployee', () => {
+		it('should remove employee from company', () => {
+			const employee = new Employee('valid');
+			const company = new Company('company');
+			company.addEmployee(employee);
+			company.removeEmployee(employee);
+			expect(company.employees).toEqual([]);
+		});
+		it('should throw error if employee does not exist', () => {
+			const employee = new Employee('valid');
+			const company = new Company('company');
+			expect(() => company.removeEmployee(employee)).toThrow(
+				errorMessages['company.employee.doesNotExist']
+			);
+		});
+	});
 });
