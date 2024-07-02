@@ -8,15 +8,19 @@ const reasonMessages = {
 	[Reasons.maxLength]: errorMessages['company.name.tooLong'],
 };
 
-type P = Pick<CompanyI, 'name'>;
+type P = {
+	maxEmployees: number;
+} & Pick<CompanyI, 'name'>;
 
 export default class Company {
 	private _name: string;
 	private _employees: Employee[] = [];
+	private _maxEmployees: number;
 
-	constructor({ name }: P) {
+	constructor({ name, maxEmployees }: P) {
 		this.validateName(name);
 		this._name = name;
+		this._maxEmployees = maxEmployees;
 	}
 
 	private validateName(name: string) {
@@ -39,6 +43,10 @@ export default class Company {
 	}
 
 	public addEmployee(employee: Employee) {
+		if (this.employees.length >= this._maxEmployees) {
+			throw new Error(errorMessages['company.employee.maxReached']);
+		}
+
 		const employeeExists = this.employees.find(e => e.name === employee.name);
 
 		if (employeeExists) {

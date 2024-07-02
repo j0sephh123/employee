@@ -19,7 +19,7 @@
   - 🛠️ should have a unique name
 - ✅ add employee
   - ✅ prevent duplicate employees
-  - 🛠️ maximum employees - different for each company
+  - ✅ maximum employees - different for each company
 - ✅ remove employee
   - 🛠️ company should have at least 1 employee
 - ✅ modify name
