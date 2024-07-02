@@ -14,9 +14,9 @@
 - ✅ modify name
 
 ## Company
+
 - ✅ create
   - ✅ validate name for length `[2,20]`
-  - 🛠️ should have a unique name
 - ✅ add employee
   - ✅ prevent duplicate employees
   - ✅ maximum employees - different for each company
@@ -25,9 +25,10 @@
 - ✅ modify name
 
 ## CompanyManager
+
 - ✅ init with an empty array for companies
-- 🛠️ add
-  - 🛠️ check for company unique name
+- ✅ add
+  - ✅ check for company unique name
 
 # Tech
 

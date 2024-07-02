@@ -3,6 +3,7 @@ export const errorMessages = {
 	'employee.name.tooLong': 'Employee name is too long',
 	'employee.age.tooYoung': 'Employee is too young',
 	'employee.age.tooOld': 'Employee is too old',
+
 	'company.name.tooShort': 'Company name is too short',
 	'company.name.tooLong': 'Company name is too long',
 	'company.employee.alreadyExists': 'Employee already exists in company',
@@ -10,4 +11,6 @@ export const errorMessages = {
 	'company.employee.maxReached':
 		'Company has reached maximum number of employees',
 	'company.employee.atLeastOne': 'Company must have at least one employee',
+
+	'companyManager.alreadyExists': 'Company already exists',
 } as const;
