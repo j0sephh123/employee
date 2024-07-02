@@ -81,4 +81,24 @@ describe('Company', () => {
 			errorMessages['company.employee.maxReached']
 		);
 	});
+	it('should get total number of employees', () => {
+		const company = new Company({ name: 'company', maxEmployees: 5 });
+		const employee1 = new Employee({ name: 'valid1', age: 18 });
+		company.addEmployee(employee1);
+		const employee2 = new Employee({ name: 'valid2', age: 18 });
+		company.addEmployee(employee2);
+
+		expect(company.totalEmployees).toEqual(2);
+	});
+	it('should get employee details by name', () => {
+		const company = new Company({ name: 'company', maxEmployees: 5 });
+		const employee1 = new Employee({ name: 'valid1', age: 18 });
+		company.addEmployee(employee1);
+		const employee2 = new Employee({ name: 'valid2', age: 18 });
+		company.addEmployee(employee2);
+
+		expect(company.getEmployeeByName('valid1')).toEqual(employee1);
+		expect(company.getEmployeeByName('valid2')).toEqual(employee2);
+		expect(company.getEmployeeByName('valid3')).toBeUndefined();
+	});
 });

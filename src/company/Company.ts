@@ -79,4 +79,12 @@ export default class Company {
 	get employees() {
 		return this._employees;
 	}
+
+	get totalEmployees() {
+		return this._employees.length;
+	}
+
+	public getEmployeeByName(name: string) {
+		return this._employees.find(e => e.name === name);
+	}
 }
