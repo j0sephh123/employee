@@ -3,4 +3,5 @@ export const errorMessages = {
 	'employee.name.tooLong': 'Employee name is too long',
 	'company.name.tooShort': 'Company name is too short',
 	'company.name.tooLong': 'Company name is too long',
+	'company.employee.alreadyExists': 'Employee already exists in company',
 };

@@ -26,6 +26,12 @@ export default class Company {
 	}
 
 	public addEmployee(employee: Employee) {
+		const employeeExists = this.employees.find(e => e.name === employee.name);
+
+		if (employeeExists) {
+			throw new Error(errorMessages['company.employee.alreadyExists']);
+		}
+
 		this.employees.push(employee);
 
 		return this.employees;

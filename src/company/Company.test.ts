@@ -25,5 +25,13 @@ describe('Company', () => {
 			const employees = company.addEmployee(employee);
 			expect(employees).toEqual([employee]);
 		});
-	})
+		it('should throw error if employee already exists', () => {
+			const employee = new Employee('valid');
+			const company = new Company('company');
+			company.addEmployee(employee);
+			expect(() => company.addEmployee(employee)).toThrow(
+				errorMessages['company.employee.alreadyExists']
+			);
+		});
+	});
 });
