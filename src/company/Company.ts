@@ -8,15 +8,25 @@ const reasonMessages = {
 };
 
 export default class Company {
+	private _name: string;
 	private _employees: Employee[] = [];
 
-	constructor(public name: string) {
+	constructor(name: string) {
+		this.validateName(name);
+		this._name = name;
+	}
+
+	private validateName(name: string) {
 		const validator = new Validator({ name: { min: 2, max: 20 } });
 		const validationResult = validator.validateName(name);
 		if (!validationResult.isValid) {
 			const message = reasonMessages[validationResult.reason];
 			throw new Error(message);
 		}
+	}
+
+	get name() {
+		return this._name;
 	}
 
 	public create() {

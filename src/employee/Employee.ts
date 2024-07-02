@@ -7,7 +7,14 @@ const reasonMessages = {
 };
 
 export default class Employee {
-	constructor(public name: string) {
+	private _name: string;
+
+	constructor(name: string) {
+		this.validateName(name);
+		this._name = name;
+	}
+
+	private validateName(name: string) {
 		const validator = new Validator({ name: { min: 2, max: 20 } });
 		const validationResult = validator.validateName(name);
 		if (!validationResult.isValid) {
@@ -15,4 +22,10 @@ export default class Employee {
 			throw new Error(message);
 		}
 	}
+
+	get name() {
+		return this._name;
+	}
+
+	
 }
