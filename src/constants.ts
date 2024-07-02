@@ -9,4 +9,5 @@ export const errorMessages = {
 	'company.employee.doesNotExist': 'Employee does not exist in company',
 	'company.employee.maxReached':
 		'Company has reached maximum number of employees',
+	'company.employee.atLeastOne': 'Company must have at least one employee',
 } as const;

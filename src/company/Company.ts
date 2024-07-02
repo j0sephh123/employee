@@ -65,6 +65,10 @@ export default class Company {
 		if (employeesBefore === this._employees.length) {
 			throw new Error(errorMessages['company.employee.doesNotExist']);
 		}
+
+		if (this._employees.length === 0) {
+			throw new Error(errorMessages['company.employee.atLeastOne']);
+		}
 	}
 
 	public updateName(name: string) {

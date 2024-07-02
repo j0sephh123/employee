@@ -36,11 +36,21 @@ describe('Company', () => {
 	});
 	describe('removeEmployee', () => {
 		it('should remove employee from company', () => {
-			const employee = new Employee({ name: 'valid', age: 18 });
+			const employee1 = new Employee({ name: 'valid1', age: 18 });
+			const employee2 = new Employee({ name: 'valid2', age: 18 });
 			const company = new Company({ name: 'company', maxEmployees: 5 });
-			company.addEmployee(employee);
-			company.removeEmployee(employee);
-			expect(company.employees).toEqual([]);
+			company.addEmployee(employee1);
+			company.addEmployee(employee2);
+
+			expect(company.employees).toEqual([employee1, employee2]);
+
+			company.removeEmployee(employee1);
+
+			expect(company.employees).toEqual([employee2]);
+
+			expect(() => company.removeEmployee(employee2)).toThrow(
+				errorMessages['company.employee.atLeastOne']
+			);
 		});
 		it('should throw error if employee does not exist', () => {
 			const employee = new Employee({ name: 'valid', age: 18 });

@@ -21,7 +21,7 @@
   - ✅ prevent duplicate employees
   - ✅ maximum employees - different for each company
 - ✅ remove employee
-  - 🛠️ company should have at least 1 employee
+  - ✅ company should have at least 1 employee
 - ✅ modify name
 
 ## CompanyManager
