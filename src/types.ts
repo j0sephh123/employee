@@ -1,8 +1,8 @@
-export type Company = {
+export type CompanyI = {
 	name: string;
-	employees: Employee[];
+	employees: EmployeeI[];
 };
 
-export type Employee = {
+export type EmployeeI = {
 	name: string;
 };
