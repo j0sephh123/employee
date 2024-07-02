@@ -1,5 +1,5 @@
 interface ValidatorI {
-	validateName: (name: string) =>
+	validateField: (fieldValue: string) =>
 		| {
 				isValid: true;
 		  }
@@ -14,6 +14,7 @@ export enum Reasons {
 	maxLength,
 }
 
+// TODO - instantiating with name is not ideal, find a better way in 1 line
 export default class Validator implements ValidatorI {
 	private name: { min: number; max: number };
 
@@ -21,11 +22,11 @@ export default class Validator implements ValidatorI {
 		this.name = name;
 	}
 
-	validateName(nameArg: string): ReturnType<ValidatorI['validateName']> {
-		if (nameArg.length < this.name.min) {
+	validateField(fieldValue: string): ReturnType<ValidatorI['validateField']> {
+		if (fieldValue.length < this.name.min) {
 			return { isValid: false, reason: Reasons.minLength };
 		}
-		if (nameArg.length > this.name.max) {
+		if (fieldValue.length > this.name.max) {
 			return { isValid: false, reason: Reasons.maxLength };
 		}
 		return { isValid: true };

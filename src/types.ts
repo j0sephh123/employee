@@ -5,4 +5,5 @@ export type CompanyI = {
 
 export type EmployeeI = {
 	name: string;
+	age: number;
 };

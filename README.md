@@ -10,16 +10,23 @@
 
 - ✅ create
   - ✅ validate name for length `[2,20]`
-- 🛠️ remove
+  - 🛠️ age `[18,64]`
 - 🛠️ modify name
 
 ## Company
 - ✅ create
-  - 🛠️ validate name for length `[2,20]`
+  - ✅ validate name for length `[2,20]`
+  - 🛠️ should have a unique name
 - ✅ add employee
-  - 🛠️ prevent duplicate employees
-- 🛠️ remove
+  - ✅ prevent duplicate employees
+  - 🛠️ maximum employees - different for each company
+- ✅ remove employee
+  - 🛠️ company should have at least 1 employee
 - 🛠️ modify name
+
+## CompanyManager
+- 🛠️ add
+  - 🛠️ check for company unique name
 
 # Tech
 
