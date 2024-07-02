@@ -50,4 +50,14 @@ describe('Company', () => {
 			);
 		});
 	});
+	it('should update the company name correctly', () => {
+		const company1 = new Company({ name: 'initial' });
+		company1.updateName('updated');
+		expect(company1.name).toBe('updated');
+
+		const company2 = new Company({ name: 'initial' });
+		expect(() => company2.updateName('x')).toThrow(
+			errorMessages['company.name.tooShort']
+		);
+	});
 });

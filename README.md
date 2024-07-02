@@ -10,8 +10,8 @@
 
 - ✅ create
   - ✅ validate name for length `[2,20]`
-  - 🛠️ age `[18,64]`
-- 🛠️ modify name
+  - ✅ age `[18,64]`
+- ✅ modify name
 
 ## Company
 - ✅ create
@@ -22,7 +22,7 @@
   - 🛠️ maximum employees - different for each company
 - ✅ remove employee
   - 🛠️ company should have at least 1 employee
-- 🛠️ modify name
+- ✅ modify name
 
 ## CompanyManager
 - 🛠️ add

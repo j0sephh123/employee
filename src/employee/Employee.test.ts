@@ -23,4 +23,14 @@ describe('Employee', () => {
 		expect(employee.name).toBe('valid');
 		expect(employee.age).toBe(18);
 	});
+	it('should update the employee name correctly', () => {
+		const employee1 = new Employee({ name: 'initial', age: 30 });
+		employee1.updateName('updated');
+		expect(employee1.name).toBe('updated');
+
+		const employee2 = new Employee({ name: 'initial', age: 30 });
+		expect(() => employee2.updateName('x')).toThrow(
+			errorMessages['employee.name.tooShort']
+		);
+	});
 });

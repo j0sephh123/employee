@@ -59,6 +59,11 @@ export default class Company {
 		}
 	}
 
+	public updateName(name: string) {
+		this.validateName(name);
+		this._name = name;
+	}
+
 	get employees() {
 		return this._employees;
 	}

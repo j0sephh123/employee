@@ -21,6 +21,11 @@ export default class Employee {
 		this._age = age;
 	}
 
+	public updateName(name: string) {
+		this.validateName(name);
+		this._name = name;
+	}
+
 	// TODO move to Validator class
 	private validateAge(age: number) {
 		if (age < 18) {
