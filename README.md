@@ -25,6 +25,7 @@
 - ✅ modify name
 
 ## CompanyManager
+- ✅ init with an empty array for companies
 - 🛠️ add
   - 🛠️ check for company unique name
 
