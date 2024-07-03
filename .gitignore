@@ -2,5 +2,3 @@ node_modules
 coverage
 dist
 .husky
-allure-results
-allure-report

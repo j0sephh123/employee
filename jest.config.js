@@ -1,9 +1,6 @@
 module.exports = {
 	preset: 'ts-jest',
-	testEnvironment: 'allure-jest/node',
-	testEnvironmentOptions: {
-		resultsDir: './allure-results',
-	},
+	testEnvironment: 'node',
 	moduleFileExtensions: ['ts', 'js'],
 	testMatch: ['**/?(*.)+(spec|test).ts'],
 	transform: {

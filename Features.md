@@ -1,5 +1,3 @@
-I will try to integrate this tree structure into test files and generate them with `allure` package
-
 ### Positions and Departments Mapping
 
 - **Engineering**
