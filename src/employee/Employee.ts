@@ -1,6 +1,6 @@
 import { errorMessages } from '../constants';
 import { EmployeeI } from '../types';
-import Validator, { Reasons } from '../validators/Validator';
+import Validator, { Reasons } from '../validation/Validator';
 
 const reasonMessages = {
 	[Reasons.minLength]: errorMessages['employee.name.tooShort'],
@@ -34,7 +34,6 @@ export default class Employee {
 		if (age > 65) {
 			throw new Error(errorMessages['employee.age.tooOld']);
 		}
-	
 	}
 
 	private validateName(name: string) {

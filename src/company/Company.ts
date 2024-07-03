@@ -1,7 +1,7 @@
 import { errorMessages } from '../constants';
 import Employee from '../employee/Employee';
 import { CompanyI } from '../types';
-import Validator, { Reasons } from '../validators/Validator';
+import Validator, { Reasons } from '../validation/Validator';
 
 const reasonMessages = {
 	[Reasons.minLength]: errorMessages['company.name.tooShort'],
