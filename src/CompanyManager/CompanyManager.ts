@@ -1,4 +1,4 @@
-import Company from '../company/Company';
+import Company from '../Company/Company';
 import { errorMessages } from '../constants';
 
 export default class CompanyManager {

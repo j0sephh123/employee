@@ -6,11 +6,20 @@ export const isPositionValidForDepartment = (
 ): boolean => {
 	switch (department) {
 		case Departments.Engineering:
-			return position === Positions.SoftwareEngineer;
+			return (
+				position === Positions.SoftwareEngineer ||
+				position === Positions.QualityAssuranceEngineer
+			);
 		case Departments.Marketing:
-			return position === Positions.ProductManager;
+			return (
+				position === Positions.ProductManager ||
+				position === Positions.ContentCreator
+			);
 		case Departments.Sales:
-			return position === Positions.SalesAssociate;
+			return (
+				position === Positions.SalesAssociate ||
+				position === Positions.CustomerSuccessManager
+			);
 		default:
 			throw new Error('Invalid department');
 	}

@@ -45,11 +45,10 @@ export default class Employee {
 		}
 	}
 
-	get name() {
-		return this._name;
-	}
-
-	get age() {
-		return this._age;
+	get details() {
+		return {
+			name: this._name,
+			age: this._age,
+		};
 	}
 }

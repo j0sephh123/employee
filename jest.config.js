@@ -7,7 +7,7 @@ module.exports = {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
   collectCoverage: true,
-  collectCoverageFrom: ["src/**/*.ts"],
+  collectCoverageFrom: ["src/**/*.ts", "!src/generateMarkdown.ts"],
   coverageThreshold: {
     global: {
       branches: 100,

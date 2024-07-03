@@ -11,40 +11,47 @@
 
 ## Employee
 
-- ✅ create
+- ✅ init
+  - ✅ validate name
+  - ✅ validate age
+- 🛠️ details
+  - 🛠️ getDetails
+- ✅ update
   - ✅ validate name for length `[2,20]`
-  - ✅ validate age `[18,64]`
-- ✅ modify name
-  - ✅ validate name for length `[2,20]`
-- 🛠️ add position
-  - 🛠️ validate position from `Positions` enum
-  - 🛠️ validate position is appropriate for the department - create a function
-- 🛠️ add department
-  - 🛠️ validate from predefined `Departments` enum
 
 ## Company
 
-- ✅ create
-  - ✅ validate name for length `[2,20]`
-  - ✅ validate maximum employees `[1,100]`
-  - 🛠️ init with `Departments` enum
-- ✅ add employee
-  - ✅ prevent duplicate employees
-  - ✅ maximum employees - different for each company
-  - 🛠️ validate employee's position is appropriate for the department
-- ✅ remove employee
-  - ✅ company should have at least 1 employee
-- ✅ modify name
-  - ✅ validate name for length `[2,20]`
-- ✅ get total number of employees
-- ✅ get employee details by name
+- ✅ init
+  - ✅ validate name
+  - ✅ validate maximum employees
+- 🛠️ details
+  - 🛠️ getDetails
+  - ✅ update name
+- 🛠️ departments
+  - 🛠️ init
+  - 🛠️ add
+- 🛠️ employees
+  - ✅ add
+    - ✅ prevent duplicate employees
+    - ✅ maximum employees
+    - 🛠️ validate employee's position is appropriate for the department
+  - ✅ remove
+    - ✅ should remove correctly, but a company should have at least 1 employee
+    - ✅ should throw an error if employee does not exist
+  - ✅ update name
+    - ✅ validate name for length `[2,20]`
+  - ✅ get total number
+  - ✅ get employee details by name
+  - 🛠️ assign position
+    - 🛠️ use `Positions` enum
+    - 🛠️ validate position is appropriate for the department - ✅ create a function
 
 ## CompanyManager
 
 - ✅ init with an empty array for companies
 - ✅ add company
   - ✅ check for company unique name
-- ✅ remove company
-- ✅ get company by name
+- 🛠️ remove company by its name
+- ✅ get company by its name
 - ✅ list all companies
 - ✅ get total number of companies

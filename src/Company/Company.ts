@@ -1,5 +1,5 @@
 import { errorMessages } from '../constants';
-import Employee from '../employee/Employee';
+import Employee from '../Employee/Employee';
 import { CompanyI } from '../types';
 import Validator, { Reasons } from '../validation/Validator';
 
@@ -47,7 +47,7 @@ export default class Company {
 			throw new Error(errorMessages['company.employee.maxReached']);
 		}
 
-		const employeeExists = this.employees.find(e => e.name === employee.name);
+		const employeeExists = this.employees.find(e => e.details.name === employee.details.name);
 
 		if (employeeExists) {
 			throw new Error(errorMessages['company.employee.alreadyExists']);
@@ -60,7 +60,7 @@ export default class Company {
 
 	public removeEmployee(employee: Employee) {
 		const employeesBefore = this._employees.length;
-		this._employees = this._employees.filter(e => e.name !== employee.name);
+		this._employees = this._employees.filter(e => e.details.name !== employee.details.name);
 
 		if (employeesBefore === this._employees.length) {
 			throw new Error(errorMessages['company.employee.doesNotExist']);
@@ -85,6 +85,6 @@ export default class Company {
 	}
 
 	public getEmployeeByName(name: string) {
-		return this._employees.find(e => e.name === name);
+		return this._employees.find(e => e.details.name === name);
 	}
 }
