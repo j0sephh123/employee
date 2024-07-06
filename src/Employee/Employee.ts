@@ -1,11 +1,6 @@
 import { errorMessages } from '../constants';
 import { EmployeeI } from '../types';
-import Validator, { Reasons } from '../validation/Validator';
-
-const reasonMessages = {
-	[Reasons.minLength]: errorMessages['employee.name.tooShort'],
-	[Reasons.maxLength]: errorMessages['employee.name.tooLong'],
-};
+import EmployeeValidator from '../validation/EmployeeValidator';
 
 type P = EmployeeI;
 
@@ -26,7 +21,6 @@ export default class Employee {
 		this._name = name;
 	}
 
-	// TODO move to Validator class
 	private validateAge(age: number) {
 		if (age < 18) {
 			throw new Error(errorMessages['employee.age.tooYoung']);
@@ -37,12 +31,7 @@ export default class Employee {
 	}
 
 	private validateName(name: string) {
-		const validator = new Validator({ name: { min: 2, max: 20 } });
-		const validationResult = validator.validateField(name);
-		if (!validationResult.isValid) {
-			const message = reasonMessages[validationResult.reason];
-			throw new Error(message);
-		}
+		new EmployeeValidator(name).validateName();
 	}
 
 	get details() {

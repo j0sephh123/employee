@@ -1,7 +1,8 @@
 import { errorMessages } from '../constants';
 import Employee from '../Employee/Employee';
 import { CompanyI } from '../types';
-import Validator, { Reasons } from '../validation/Validator';
+import CompanyValidator from '../validation/CompanyValidator';
+import { Reasons } from '../validation/Validator';
 
 const reasonMessages = {
 	[Reasons.minLength]: errorMessages['company.name.tooShort'],
@@ -24,12 +25,7 @@ export default class Company {
 	}
 
 	private validateName(name: string) {
-		const validator = new Validator({ name: { min: 2, max: 20 } });
-		const validationResult = validator.validateField(name);
-		if (!validationResult.isValid) {
-			const message = reasonMessages[validationResult.reason];
-			throw new Error(message);
-		}
+		new CompanyValidator(name).validateName();
 	}
 
 	get name() {
@@ -47,7 +43,9 @@ export default class Company {
 			throw new Error(errorMessages['company.employee.maxReached']);
 		}
 
-		const employeeExists = this.employees.find(e => e.details.name === employee.details.name);
+		const employeeExists = this.employees.find(
+			e => e.details.name === employee.details.name
+		);
 
 		if (employeeExists) {
 			throw new Error(errorMessages['company.employee.alreadyExists']);
@@ -60,7 +58,9 @@ export default class Company {
 
 	public removeEmployee(employee: Employee) {
 		const employeesBefore = this._employees.length;
-		this._employees = this._employees.filter(e => e.details.name !== employee.details.name);
+		this._employees = this._employees.filter(
+			e => e.details.name !== employee.details.name
+		);
 
 		if (employeesBefore === this._employees.length) {
 			throw new Error(errorMessages['company.employee.doesNotExist']);
