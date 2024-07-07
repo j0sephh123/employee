@@ -18,8 +18,9 @@ export default class CompanyValidator extends Validator {
 		const validationResult = super.validateStringLength(this._name, 2, 20);
 
 		if (!validationResult.isValid) {
-			const message = reasonMessages[validationResult.reason];
-			throw new Error(message);
+				// Ensure validationResult.reason is a key in reasonMessages
+				const message = reasonMessages[validationResult.reason as keyof typeof reasonMessages];
+				throw new Error(message);
 		}
-	}
+}
 }

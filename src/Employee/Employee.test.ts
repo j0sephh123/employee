@@ -18,6 +18,9 @@ describe('Employee', () => {
 			expect(() => new Employee({ name: 'valid', age: 66 })).toThrow(
 				errorMessages['employee.age.tooOld']
 			);
+			expect(() => new Employee({ name: 'valid', age: 44 })).not.toThrow(
+				errorMessages['employee.age.tooOld']
+			);
 		});
 	});
 	describe('details', () => {

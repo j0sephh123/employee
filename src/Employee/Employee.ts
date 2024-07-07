@@ -22,16 +22,11 @@ export default class Employee {
 	}
 
 	private validateAge(age: number) {
-		if (age < 18) {
-			throw new Error(errorMessages['employee.age.tooYoung']);
-		}
-		if (age > 65) {
-			throw new Error(errorMessages['employee.age.tooOld']);
-		}
+		new EmployeeValidator().validateAge(age);
 	}
 
 	private validateName(name: string) {
-		new EmployeeValidator(name).validateName();
+		new EmployeeValidator().validateName(name);
 	}
 
 	get details() {

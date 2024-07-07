@@ -4,18 +4,26 @@ import Validator, { Reasons } from './Validator';
 const reasonMessages = {
 	[Reasons.minLength]: errorMessages['employee.name.tooShort'],
 	[Reasons.maxLength]: errorMessages['employee.name.tooLong'],
+	[Reasons.min]: errorMessages['employee.age.tooYoung'],
+	[Reasons.max]: errorMessages['employee.age.tooOld'],
 } as const;
 
 export default class EmployeeValidator extends Validator {
-	private _name: string;
-
-	constructor(name: string) {
+	constructor() {
 		super();
-		this._name = name;
 	}
 
-	public validateName() {
-		const validationResult = super.validateStringLength(this._name, 2, 20);
+	public validateName(name: string) {
+		const validationResult = super.validateStringLength(name, 2, 20);
+
+		if (!validationResult.isValid) {
+			const message = reasonMessages[validationResult.reason];
+			throw new Error(message);
+		}
+	}
+
+	public validateAge(age: number) {
+		const validationResult = super.validateNumber(age, 18, 65);
 
 		if (!validationResult.isValid) {
 			const message = reasonMessages[validationResult.reason];

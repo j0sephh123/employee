@@ -2,12 +2,6 @@ import { errorMessages } from '../constants';
 import Employee from '../Employee/Employee';
 import { CompanyI } from '../types';
 import CompanyValidator from '../validation/CompanyValidator';
-import { Reasons } from '../validation/Validator';
-
-const reasonMessages = {
-	[Reasons.minLength]: errorMessages['company.name.tooShort'],
-	[Reasons.maxLength]: errorMessages['company.name.tooLong'],
-};
 
 type P = {
 	maxEmployees: number;
