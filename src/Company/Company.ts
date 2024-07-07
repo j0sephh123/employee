@@ -19,7 +19,7 @@ export default class Company {
 	}
 
 	private validateName(name: string) {
-		new CompanyValidator(name).validateName();
+		new CompanyValidator().validateName(name);
 	}
 
 	get name() {
@@ -38,7 +38,7 @@ export default class Company {
 		}
 
 		const employeeExists = this.employees.find(
-			e => e.details.name === employee.details.name
+			e => e.getDetails().name === employee.getDetails().name
 		);
 
 		if (employeeExists) {
@@ -53,7 +53,7 @@ export default class Company {
 	public removeEmployee(employee: Employee) {
 		const employeesBefore = this._employees.length;
 		this._employees = this._employees.filter(
-			e => e.details.name !== employee.details.name
+			e => e.getDetails().name !== employee.getDetails().name
 		);
 
 		if (employeesBefore === this._employees.length) {
@@ -79,6 +79,6 @@ export default class Company {
 	}
 
 	public getEmployeeByName(name: string) {
-		return this._employees.find(e => e.details.name === name);
+		return this._employees.find(e => e.getDetails().name === name);
 	}
 }

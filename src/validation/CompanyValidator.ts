@@ -7,20 +7,18 @@ const reasonMessages = {
 } as const;
 
 export default class CompanyValidator extends Validator {
-	private _name: string;
-
-	constructor(name: string) {
+	constructor() {
 		super();
-		this._name = name;
 	}
 
-	public validateName() {
-		const validationResult = super.validateStringLength(this._name, 2, 20);
+	public validateName(name: string) {
+		const validationResult = super.validateStringLength(name, 2, 20);
 
 		if (!validationResult.isValid) {
-				// Ensure validationResult.reason is a key in reasonMessages
-				const message = reasonMessages[validationResult.reason as keyof typeof reasonMessages];
-				throw new Error(message);
+			// Ensure validationResult.reason is a key in reasonMessages
+			const message =
+				reasonMessages[validationResult.reason as keyof typeof reasonMessages];
+			throw new Error(message);
 		}
-}
+	}
 }

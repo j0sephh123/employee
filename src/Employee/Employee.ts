@@ -1,14 +1,18 @@
-import { errorMessages } from '../constants';
 import { EmployeeI } from '../types';
 import EmployeeValidator from '../validation/EmployeeValidator';
 
-type P = EmployeeI;
+type InitProps = EmployeeI;
 
-export default class Employee {
+type EmployeeImpl = {
+	updateName(name: string): void;
+	getDetails(): EmployeeI;
+}
+
+export default class Employee implements EmployeeImpl {
 	private _name: string;
 	private _age: number;
 
-	constructor({ name, age }: P) {
+	constructor({ name, age }: InitProps) {
 		this.validateName(name);
 		this._name = name;
 
@@ -29,7 +33,7 @@ export default class Employee {
 		new EmployeeValidator().validateName(name);
 	}
 
-	get details() {
+	public getDetails() {
 		return {
 			name: this._name,
 			age: this._age,

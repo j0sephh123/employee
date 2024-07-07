@@ -24,16 +24,16 @@ describe('Employee', () => {
 		});
 	});
 	describe('details', () => {
-		it('get', () => {
+		it('getDetails', () => {
 			const employee = new Employee({ name: 'valid', age: 18 });
-			expect(employee.details).toEqual({ name: 'valid', age: 18 });
+			expect(employee.getDetails()).toEqual({ name: 'valid', age: 18 });
 		});
 	});
 	describe('update', () => {
 		it('name', () => {
 			const employee1 = new Employee({ name: 'initial', age: 30 });
 			employee1.updateName('updated');
-			expect(employee1.details.name).toBe('updated');
+			expect(employee1.getDetails().name).toBe('updated');
 
 			const employee2 = new Employee({ name: 'initial', age: 30 });
 			expect(() => employee2.updateName('x')).toThrow(
